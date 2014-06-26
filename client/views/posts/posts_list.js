@@ -20,6 +20,10 @@ var postsData = [
         url: 'http://themeteorbook.com'
     },
 ];
+
+/**
+ * Define a template helper for posts
+ */
 Template.postsList.helpers({
     posts: postsData
 });
