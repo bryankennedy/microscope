@@ -3,6 +3,11 @@ Posts.allow({
     update: ownsDocument,
     remove: ownsDocument
 });
+Posts.deny({
+    // Reject any edits if fieldNames array contains
+    // anything other than the url and title
+    return (_.without(fieldNames, 'url', 'title').length > 0);
+});
 
 Meteor.methods({
     post: function(postAttributes) {
