@@ -1,8 +1,10 @@
 Posts = new Meteor.Collection('posts');
+
 Posts.allow({
     update: ownsDocument,
     remove: ownsDocument
 });
+
 Posts.deny({
     update: function(userId, post, fieldNames) {
         // Reject any edits if fieldNames array contains
