@@ -62,7 +62,7 @@ if (Posts.find().count() === 0) {
             author: sacha.profile.name,
             userId: sacha._id,
             url: 'http://google.com/?q=test-' + i,
-            submitted: now - i * 3600 * 1000,
+            submitted: now - i * 3600 * 1000 + 1,
             commentsCount: 0
         });
     }
