@@ -19,6 +19,12 @@ Meteor.methods({
         // Use Mongo's $inc operator to increment the count
         Posts.update(comment.postId, {$inc: {commentsCount: 1}});
 
-        return Comments.insert(comment)
+        // Create the comment, save the ID
+        comment._id = Comments.insert(comment);
+
+        // Create a notification
+        createCommentNotification(comment);
+
+        return comment._id;
     }
 });
