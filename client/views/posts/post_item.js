@@ -8,3 +8,13 @@ Template.postItem.helpers({
         return a.hostname;
     },
 });
+
+/**
+ * Upvote event
+ */
+Template.postItem.events({
+    'click .upvote': function(e) {
+        e.preventDefault();
+        Meteor.call('upvote', this._id);
+    }
+});
